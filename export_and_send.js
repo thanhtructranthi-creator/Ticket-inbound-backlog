@@ -1,3 +1,4 @@
+
 // export_and_send.js (CommonJS)
 // Full version: read specific cells from BOT sheet, build mention-tags like Apps Script,
 // send text (with mentions) -> generate or read PNG -> send PNG to SeaTalk
@@ -116,14 +117,14 @@ function buildMentionTags(emails) {
       console.warn("Warning reading rangeA:", e);
     }
 
-    let b1 = "";
+    let V1 = "";
     try {
       const r2 = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${encodeURIComponent(rangeB)}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (r2.ok) {
         const j2 = await r2.json();
-        b1 = (j2.values && j2.values[0] && j2.values[0][0]) ? String(j2.values[0][0]) : "";
+        V1 = (j2.values && j2.values[0] && j2.values[0][0]) ? String(j2.values[0][0]) : "";
       } else {
         console.warn("Warning: cannot fetch range", rangeB, "->", await r2.text());
       }
@@ -136,7 +137,7 @@ function buildMentionTags(emails) {
 
     // Map to datX like your Apps Script:
     const dat0 = aVals[0] || "";   // U1
-    const dat11 = v1 || "";        // V1
+    const dat11 = V1 || "";        // V1
 
     // --- Build final text exactly like your Apps Script data20 ---
     const prefixMentions = buildMentionTags(MENTION_EMAILS);
