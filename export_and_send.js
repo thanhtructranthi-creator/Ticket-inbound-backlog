@@ -21,7 +21,7 @@ const {
   SCALE_TO_PX = "1600",
   USE_LOCAL_IMAGE = "0",       // set to "1" to use local file
   LOCAL_IMAGE_PATH = "/mnt/data/55c6a28d-b9e9-4247-9079-a1808fb9dc68.png", // your uploaded file path
-  TEXT_SHEET_NAME = "BOT"      // sheet name where text cells live
+  TEXT_SHEET_NAME = "Bot Dispute"      // sheet name where text cells live
 } = process.env;
 
 function need(v, name) { if (!v) { console.error(`Missing env: ${name}`); process.exit(1); } }
@@ -60,19 +60,15 @@ function parseA1Range(a1) {
 
 // Build mention tags array exactly like Apps Script style
 const MENTION_EMAILS = [
-  "luc.nguyen@shopee.com",
-  "minh.phamnhat@shopee.com",
-  "xuanbiu.nguyen@shopee.com",
-  "hoangsang.tranvu@shopee.com",
-  "luan.nguyen@shopee.com",
-  "quan.vominh@spxexpress.com"
+  "quang.huynh@shopee.com", 
+  "mongkieu.nguyen@shopee.com", 
+  "mylinh.do@shopee.com",
+  "minhthai.nguyen@shopee.com"
   // additional mentions appended later (quang.huynh, anh.tranviet, dieu.buithuy, tanloc.nguyen)
 ];
 
 const FOOTER_MENTIONS = [
-  "quang.huynh@shopee.com",
-  "dieu.buithuy@shopee.com",
-  "tanloc.nguyen@shopee.com"
+  "thanhtruc.tranthi@shopee.com"
 ];
 
 function buildMentionTags(emails) {
@@ -101,8 +97,8 @@ function buildMentionTags(emails) {
 
     // --- Read specific cells from BOT sheet (A1..A15 and B1) ---
     // We'll request BOT!A1:A15 and BOT!B1
-    const rangeA = `${TEXT_SHEET_NAME}!A1:A15`;
-    const rangeB = `${TEXT_SHEET_NAME}!B1`;
+    const rangeA = `${TEXT_SHEET_NAME}!U1`;
+    const rangeB = `${TEXT_SHEET_NAME}!V1`;
 
     let aVals = [];
     try {
@@ -139,21 +135,8 @@ function buildMentionTags(emails) {
     while (aVals.length < 15) aVals.push("");
 
     // Map to datX like your Apps Script:
-    const dat0 = aVals[0] || "";   // A1
-    const dat1 = aVals[1] || "";   // A2
-    const dat2 = aVals[2] || "";   // A3
-    const dat3 = aVals[3] || "";   // A4
-    const dat4 = aVals[4] || "";   // A5
-    const dat5 = aVals[5] || "";   // A6
-    const dat6 = aVals[6] || "";   // A7
-    const dat7 = aVals[7] || "";   // A8
-    const dat8 = aVals[8] || "";   // A9
-    const dat9 = aVals[9] || "";   // A10
-    const dat10 = aVals[10] || ""; // A11
-    const dat12 = aVals[11] || ""; // A12
-    const dat14 = aVals[13] || ""; // A14
-    const dat15 = aVals[14] || ""; // A15
-    const dat11 = b1 || "";        // B1
+    const dat0 = aVals[0] || "";   // U1
+    const dat11 = v1 || "";        // V1
 
     // --- Build final text exactly like your Apps Script data20 ---
     const prefixMentions = buildMentionTags(MENTION_EMAILS);
@@ -164,7 +147,7 @@ function buildMentionTags(emails) {
     finalText += dat11;
     finalText += prefixMentions;
     finalText += dat0 + "\n";
-    finalText += dat2 + "\n";
+    //finalText += dat2 + "\n";
     finalText += footerMentions;
 
     // --- Send text to SeaTalk ---
