@@ -22,7 +22,7 @@ const {
   SCALE_TO_PX = "1600",
   USE_LOCAL_IMAGE = "0",       // set to "1" to use local file
   LOCAL_IMAGE_PATH = "/mnt/data/55c6a28d-b9e9-4247-9079-a1808fb9dc68.png", // your uploaded file path
-  TEXT_SHEET_NAME = "Bot Dispute"      // sheet name where text cells live
+  TEXT_SHEET_NAME = "Escalate Dispute"      // sheet name where text cells live
 } = process.env;
 
 function need(v, name) { if (!v) { console.error(`Missing env: ${name}`); process.exit(1); } }
