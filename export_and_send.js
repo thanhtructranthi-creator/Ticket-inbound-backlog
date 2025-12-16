@@ -62,6 +62,7 @@ function parseA1Range(a1) {
 // Build mention tags array exactly like Apps Script style
 const MENTION_EMAILS = [
   "quang.huynh@shopee.com", 
+  "tran.ha@shopee.com",
   "mongkieu.nguyen@shopee.com", 
   "mylinh.do@shopee.com",
   "minhthai.nguyen@shopee.com"
