@@ -123,14 +123,14 @@ function buildMentionTags(emails) {
       console.warn("Warning reading rangeA:", e);
     }
 
-    let V1 = "";
+    let B1 = "";
     try {
       const r2 = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${encodeURIComponent(rangeB)}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (r2.ok) {
         const j2 = await r2.json();
-        V1 = (j2.values && j2.values[0] && j2.values[0][0]) ? String(j2.values[0][0]) : "";
+        B1 = (j2.values && j2.values[0] && j2.values[0][0]) ? String(j2.values[0][0]) : "";
       } else {
         console.warn("Warning: cannot fetch range", rangeB, "->", await r2.text());
       }
