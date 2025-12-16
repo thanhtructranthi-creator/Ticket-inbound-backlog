@@ -74,7 +74,7 @@ const MENTION_EMAILS = [
 
 const FOOTER_MENTIONS = [
   "mylinh.do@shopee.com",
-  "minhthai.nguyen@shopee.com".
+  "minhthai.nguyen@shopee.com",
   "thanhtruc.tranthi@shopee.com"
 ];
 
