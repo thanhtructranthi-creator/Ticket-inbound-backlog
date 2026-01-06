@@ -67,8 +67,7 @@ const MENTION_EMAILS = [
   "xuanbiu.nguyen@shopee.com",
   "ngocmai.nguyenthi@shopee.com",
   "quang.huynh@shopee.com", 
-  "tran.ha@shopee.com",
-  "mongkieu.nguyen@shopee.com"  
+  "tran.ha@shopee.com"  
   // additional mentions appended later (quang.huynh, anh.tranviet, dieu.buithuy, tanloc.nguyen)
 ];
 
